@@ -23,7 +23,8 @@ export default store(function (/* { ssrContext } */) {
       categories: [],
       products: [],
       cart:[],
-      search:""
+      search:"",
+      category_active: ""
     },
     mutations:{
       setCategories(state,data){
@@ -52,9 +53,8 @@ export default store(function (/* { ssrContext } */) {
           state.cart[index].qty--;
         }
       },
-      searchProducts(state, search){
-
-      
+      setCategoryActive(state, id){
+        state.category_active = state.categories.filter(item => item.id == id)
       }
     },
     actions:{
@@ -94,6 +94,9 @@ export default store(function (/* { ssrContext } */) {
       },
       changeQtyCartItem({commit}, product){
         commit('setChangeQtyCartItem', product)
+      },
+      getCategoryActive({commit}, id){
+        commit('setCategoryActive',id)
       }
       
 

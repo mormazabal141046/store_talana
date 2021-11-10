@@ -2,6 +2,7 @@
   <q-page class="flex column justify-start items-start content-center q-pa-lg">
       <div class="column flex justify-center items-center content-center wrap container-page w-100">
         <!-- Hola {{ $route.params.id}} -->
+        <!-- Categoría: {{category_active.name}} -->
         <ProductsList v-bind="{products}"/>
     </div>
   </q-page>
@@ -18,18 +19,18 @@ export default {
   },
   data(){
     return{
-      expanded: false,
-      lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    }
+      expanded: false    
+      }
   },
   mounted(){
     this.getProducts(this.$route.params.id);
+    this.getCategoryActive(this.$route.params.id)
   },
   computed:{
-    ...mapState(['products'])
+    ...mapState(['products','category_active'])
   },
   methods:{
-    ...mapActions(['getProducts']),
+    ...mapActions(['getProducts','getCategoryActive']),
   }
 }
 </script>
