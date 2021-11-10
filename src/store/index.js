@@ -54,7 +54,7 @@ export default store(function (/* { ssrContext } */) {
       },
       searchProducts(state, search){
 
-      }
+      
       }
     },
     actions:{
